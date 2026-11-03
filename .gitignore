@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+backend/venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Runtime output
+*.log
+logs/
+uploads/
+uploaded_images/
+tmp/
+temp/
+
+# Local IDE and nested repository metadata
+.vscode/
+farmer-pwa/.git/
+farmer-pwa/.git-backup/
+
+# OS files
+.DS_Store
+Thumbs.db

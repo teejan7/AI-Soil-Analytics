@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f7f1;
+  --foreground: #17352a;
+  --surface: #ffffff;
+  --border: #dce7dd;
+  --muted: #5d6d64;
+  --brand: #1f7a4d;
+  --brand-dark: #145c3a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #122019;
+    --foreground: #edf5ef;
+    --surface: #1c3025;
+    --border: #365441;
+    --muted: #b5c8b9;
+    --brand: #63bd82;
+    --brand-dark: #9bdfae;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, "Noto Sans Devanagari", "Noto Sans Malayalam", sans-serif;
+}
+
+button,
+a,
+select,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+select {
+  min-height: 48px;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brand-dark);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.app-content {
+  min-height: calc(100vh - 57px);
+}
+
+.offline-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e7c27d;
+  background: #fff6df;
+  color: #704b12;
+  padding: 0.55rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.with-bottom-nav {
+  padding-bottom: 76px;
+}
+
+.bottom-nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 32rem;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  padding: 0.35rem 0.45rem max(0.35rem, env(safe-area-inset-bottom));
+  backdrop-filter: blur(12px);
+}
+
+.bottom-nav-link {
+  display: flex;
+  min-height: 56px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  border-radius: 0.85rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.bottom-nav-link.active {
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
